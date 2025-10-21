@@ -1,0 +1,133 @@
+---
+alwaysApply: false
+---
+Vintage / Retro — Project Goals & Experience Blueprint
+1) Vision
+
+Deliver a warm, nostalgic, handcrafted experience with modern performance. The interface feels like aged paper and letterpress ink while behaving with crisp, contemporary responsiveness.
+
+2) Aesthetic System (Final Choices)
+
+Palette
+
+#2F2213 Ink
+
+#6B4E2E Sepia-900
+
+#8C6A3B Sepia-700
+
+#B0895E Sepia-500
+
+#E7D9C9 Cream-200
+
+#F6F0E6 Cream-50
+
+Accent Olive #6D8A57, Accent Burgundy #7A3E3E
+
+Typography
+
+Display: Cormorant Garamond (600/700)
+
+Body/UI: Source Serif 4 (400/500/600)
+
+Texture & Finishes
+
+Subtle paper grain overlay (SVG mask at 6% opacity)
+
+Hairline borders (1px, #E2D7C7)
+
+Letterpress shadow (y=1, blur=2, alpha=0.12)
+
+3) Layout & Spacing
+
+Grid: 12-col responsive grid, 72rem max content width.
+
+Spacing Scale: 4, 8, 12, 16, 24, 32, 48, 64.
+
+Radii: 10px cards, 8px buttons, 999px pills.
+
+4) Motion & Micro-interactions
+
+Principle: Motion communicates state, never distracts.
+
+Durations: 160ms micro, 240ms page transitions.
+
+Easing: Cubic-bezier(0.22, 0.55, 0.25, 0.95).
+
+Patterns
+
+Hover: grain intensity +6%, soft raise (translateY(-1px)).
+
+Button press: compress scaleY(0.98) then settle.
+
+Page transition: fade-through sepia wash at 8% opacity over 240ms.
+
+Toggle: flip-card 3D rotateY(8°) with snap back.
+
+Reduced Motion: Respect prefers-reduced-motion (animations disabled; instant state changes).
+
+5) Information Architecture
+
+Home → brand story hero → featured items/services → testimonials → CTA.
+
+Catalog/Services → filter header → card grid → detail pages.
+
+About → timeline with stamps and photos.
+
+Gallery/Lookbook → masonry grid with gentle zoom on reveal.
+
+Contact/Booking → succinct form, success receipt, sepia-styled map.
+
+Journal → short entries with date-stamp badges.
+
+6) Components (Specs)
+
+Header/Nav: Sticky; section underline 2px (#B0895E), active tab emboss.
+
+Card: 10px radius, 1px border #E2D7C7, soft shadow; thumbnail with 5% grain.
+
+Buttons: Primary #8C6A3B on #F6F0E6; text #F6F0E6; focus ring #6B4E2E at 2px outside.
+
+Badges: Ticket-stub silhouette, background #E7D9C9, ink text.
+
+Inputs: Background #F6F0E6, border #E2D7C7, focus ring #6D8A57.
+
+Pagination: Numbered tabs styled as film perforations with 1px inner shadow.
+
+7) Content & Tone
+
+Voice: Warm, succinct, confident.
+
+Microcopy: Verb-first (“View menu”, “Book a chair”, “See the set”).
+
+Alt Text: Context-rich (“hand-stitched leather wallet on wooden counter”).
+
+8) Accessibility
+
+Body contrast ≥ 4.5:1, large text ≥ 3:1.
+
+Focus states visually distinct from hover.
+
+Keyboard navigation complete; semantic landmarks in templates.
+
+9) Quality & Performance
+
+Targets: LCP < 2.5s, CLS < 0.1, TTI < 2.5s.
+
+Image formats AVIF/WEBP with width-based srcset.
+
+Grain/texture via non-blocking SVG masks; lazy-load non-critical media.
+
+10) Tokens (CSS Variables)
+:root{
+  --ink:#2F2213; --sepia-900:#6B4E2E; --sepia-700:#8C6A3B; --sepia-500:#B0895E;
+  --cream-200:#E7D9C9; --cream-50:#F6F0E6; --olive:#6D8A57; --burgundy:#7A3E3E;
+  --radius-card:10px; --radius-button:8px;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --easing:cubic-bezier(.22,.55,.25,.95);
+  --dur-micro:160ms; --dur-page:240ms;
+}
+
+11) Success Metrics
+
+Engagement on Home and Catalog, gallery interaction rate, booking/contact submissions, “Get directions” clicks, and qualitative delight feedback.

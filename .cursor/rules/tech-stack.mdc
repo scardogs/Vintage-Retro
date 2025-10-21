@@ -1,0 +1,216 @@
+---
+alwaysApply: true
+---
+MERN Stack Guidelines & Tech Stack (Decisive)
+1) Platform & Versions
+
+Node.js: 20 LTS
+
+Package Manager: pnpm
+
+Language: TypeScript (strict)
+
+Monorepo: pnpm workspaces
+
+2) Tech Stack
+
+Frontend: React 18 + Vite
+
+Routing: React Router
+
+Data Fetching/Cache: TanStack Query
+
+State (UI/local): Zustand
+
+Styling: Tailwind CSS
+
+Animations: Framer Motion (with prefers-reduced-motion support)
+
+Icons: Lucide
+
+Forms & Validation: React Hook Form + Zod resolver
+
+HTTP Client: Fetch API wrapped in a typed client
+
+Backend: Node.js + Express 5
+
+Validation: Zod (schemas shared via packages/types)
+
+Database: MongoDB Atlas
+
+ODM: Mongoose
+
+Auth: JWT access token (15m) + httpOnly refresh token cookie (30d), Argon2 password hashing
+
+Security: Helmet, CORS allowlist, express-rate-limit, input sanitization
+
+Docs: OpenAPI generated from Zod via zod-to-openapi, served with Swagger UI
+
+Logging: Pino with request IDs
+
+Error Tracking: Sentry SDK
+
+Caching: Redis for hot endpoints (rate-limits and small response cache)
+
+Testing: Vitest (frontend & backend), React Testing Library, Supertest (API)
+
+CI/CD: GitHub Actions
+
+Containers: Docker + Docker Compose
+
+Lint/Format: ESLint (@typescript-eslint) + Prettier, Husky + lint-staged
+
+3) Repository Structure
+root/
+  apps/
+    client/
+      src/
+        assets/ components/ features/ pages/ hooks/ lib/ routes/ styles/
+        main.tsx index.css
+    server/
+      src/
+        config/ db/ middleware/ utils/
+        modules/
+          product/ controller.ts service.ts model.ts routes.ts validations.ts __tests__/
+        app.ts server.ts
+  packages/
+    types/      # shared zod schemas & TS types
+    ui/         # shared styled components (Tailwind + headless patterns)
+  .env.example
+  docker-compose.yml
+  package.json
+  README.md
+
+4) Conventions
+
+Commits: Conventional Commits.
+
+Branches: main (trunk) + short-lived feature branches, PR required.
+
+Imports: Path aliases (@/ for client, @server/ for server, @types/ for shared).
+
+Exports: Named exports.
+
+No any: TypeScript strict rules enforced.
+
+5) API Design
+
+Base: /api/v1
+
+Resources: Noun-based, pluralized.
+
+Errors: RFC 7807-style application/problem+json.
+
+Pagination/Filters: ?page=1&limit=20&sort=-createdAt&filter[field]=value
+
+Auth Flow:
+
+POST /auth/register → email/password stored with Argon2
+
+POST /auth/login → issue access JWT (15m) + refresh httpOnly cookie (30d)
+
+POST /auth/refresh → rotate refresh, new access token
+
+POST /auth/logout → revoke refresh token
+
+Fingerprint refresh tokens by jti; store in Redis; revoke on logout
+
+Rate Limits: 60 req/min/IP general; auth routes 10 req/min/IP.
+
+6) Frontend Guidelines
+
+Routing: Nested routes with code-splitting via lazy()/Suspense.
+
+State: Server state in TanStack Query; UI state in components/Zustand.
+
+Styling: Tailwind with CSS variables for tokens from the blueprint.
+
+Forms: React Hook Form + Zod; optimistic updates where safe.
+
+Accessibility: ARIA attributes, focus traps, keyboard navigation.
+
+Animations: Framer Motion durations 160–240ms, easing from blueprint, reduced-motion respected.
+
+Images: srcset + lazy loading; AVIF/WEBP.
+
+7) Backend Guidelines
+
+Layering: controller → service → repository(model).
+
+Validation: Zod at request boundary; strip unknown fields.
+
+Mongo: Mongoose lean queries, indexed frequent filters, projections for minimal payloads.
+
+Security: Helmet, strict CORS, sanitized inputs, HSTS in production.
+
+Docs: OpenAPI auto-generated on build and served at /api/docs.
+
+8) Example Data Model
+// apps/server/src/modules/product/model.ts
+import { Schema, model } from "mongoose";
+const ProductSchema = new Schema({
+  name: { type: String, required: true, trim: true },
+  price: { type: Number, required: true, min: 0 },
+  images: [{ type: String }],
+  tags: [{ type: String, index: true }],
+  description: String,
+  status: { type: String, enum: ["draft","active","archived"], default: "active" }
+},{ timestamps:true });
+
+export default model("Product", ProductSchema);
+
+9) Quality Gates
+
+CI: typecheck → lint → test → build → docker image → deploy.
+
+Coverage: 80%+ on critical paths.
+
+Performance: Lighthouse ≥ 90 (PWA not required), p95 API latency tracked.
+
+10) Environment & Deploy
+
+Env: .env.local for dev; production via secret manager.
+
+Client Hosting: Vercel.
+
+API Hosting: Render (Docker) or AWS ECS; choose AWS ECS with Fargate.
+
+DB: MongoDB Atlas with daily backups and IP allowlist.
+
+Domains: Cloudflare DNS and CDN.
+
+TLS: Managed certificates via Cloudflare.
+
+11) Docker Compose (Dev)
+version: "3.9"
+services:
+  mongo:
+    image: mongo:7
+    ports: ["27017:27017"]
+    volumes: ["mongo-data:/data/db"]
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+  api:
+    build: ./apps/server
+    ports: ["4000:4000"]
+    env_file: .env
+    depends_on: [mongo, redis]
+  web:
+    build: ./apps/client
+    ports: ["5173:5173"]
+    env_file: .env
+volumes:
+  mongo-data:
+
+12) Scripts (root package.json)
+{
+  "packageManager": "pnpm@9",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  }
+}
