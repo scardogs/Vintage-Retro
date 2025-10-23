@@ -7,39 +7,39 @@ const Home = () => {
   const features = [
     {
       icon: Star,
-      title: 'Handcrafted Design',
-      description: 'Every pixel carefully crafted with attention to detail and vintage aesthetics.'
+      title: 'Artisan Coffee',
+      description: 'Every cup carefully crafted with attention to detail and vintage brewing methods.'
     },
     {
       icon: Users,
-      title: 'Personal Touch',
-      description: 'We work closely with you to create experiences that reflect your unique story.'
+      title: 'Community Hub',
+      description: 'We create a welcoming space where neighbors become friends and stories are shared.'
     },
     {
       icon: Award,
-      title: 'Modern Performance',
-      description: 'Vintage aesthetics meet cutting-edge technology for optimal user experience.'
+      title: 'Premium Quality',
+      description: 'Vintage charm meets modern coffee excellence for the perfect cup every time.'
     },
     {
       icon: Coffee,
       title: 'Warm & Inviting',
-      description: 'Creating digital spaces that feel like home, with a touch of nostalgia.'
+      description: 'Creating a cozy atmosphere that feels like home, with a touch of nostalgia.'
     }
   ]
 
   const testimonials = [
     {
       name: 'Sarah Johnson',
-      role: 'Creative Director',
-      company: 'Heritage Brands',
-      content: 'Vintage Retro transformed our digital presence with their unique blend of nostalgia and modern functionality.',
+      role: 'Regular Customer',
+      company: 'Local Resident',
+      content: 'Vintage Retro Cafe transformed my morning routine with their unique blend of nostalgia and exceptional coffee.',
       rating: 5
     },
     {
       name: 'Michael Chen',
-      role: 'Founder',
-      company: 'Artisan Collective',
-      content: 'Their attention to detail and understanding of vintage aesthetics is unmatched in the industry.',
+      role: 'Coffee Enthusiast',
+      company: 'Daily Visitor',
+      content: 'Their attention to detail and understanding of vintage cafe culture is unmatched in the neighborhood.',
       rating: 5
     }
   ]
@@ -47,13 +47,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative section-padding-lg overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="grain-texture w-full h-full"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="container-unified relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
             <motion.div
@@ -62,24 +62,24 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.h1 
-                className="text-5xl lg:text-7xl font-display font-bold text-ink mb-6 leading-tight"
+                className="heading-1 font-display text-ink mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Vintage Digital
-                <span className="block text-sepia-700 italic">Experiences</span>
+                Vintage Retro
+                <span className="block text-sepia-700 italic">Cafe</span>
               </motion.h1>
               
               <motion.p 
-                className="text-xl text-sepia-700 mb-8 leading-relaxed"
+                className="body-large text-sepia-700 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                We create warm, nostalgic digital experiences that feel handcrafted 
-                while delivering modern performance and accessibility. Every project 
-                is tailored to perfection.
+                We create warm, nostalgic cafe experiences that feel handcrafted 
+                while delivering exceptional coffee and community. Every cup 
+                is brewed to perfection.
               </motion.p>
               
               <motion.div 
@@ -89,11 +89,11 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <Button size="lg" className="group">
-                  Start Your Project
+                  Visit Our Cafe
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-160" />
                 </Button>
                 <Button variant="outline" size="lg">
-                  View Our Work
+                  View Our Menu
                 </Button>
               </motion.div>
             </motion.div>
@@ -109,14 +109,21 @@ const Home = () => {
                 {/* Main Card */}
                 <Card className="max-w-md mx-auto">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-sepia-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-3xl font-display text-cream-50">V</span>
+                    <div className="relative mx-auto mb-4 w-fit">
+                      {/* Coffee cup logo */}
+                      <div className="w-20 h-20 bg-cream-50 flex items-center justify-center">
+                        <img 
+                          src="/logo.png" 
+                          alt="Vintage Retro Cafe Logo" 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-ink mb-2">
                       Handcrafted Excellence
                     </h3>
                     <p className="text-sepia-700 mb-4">
-                      Every detail matters in our vintage-inspired digital creations.
+                      Every detail matters in our vintage-inspired coffee creations.
                     </p>
                     <div className="flex justify-center space-x-2">
                       {[...Array(5)].map((_, i) => (
@@ -149,8 +156,8 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-cream-200/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-unified">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -158,12 +165,12 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-4">
+            <h2 className="heading-3 font-display text-ink mb-4">
               What Makes Us Special
             </h2>
-            <p className="text-xl text-sepia-700 max-w-3xl mx-auto">
-              We combine vintage aesthetics with modern technology to create 
-              digital experiences that feel both nostalgic and cutting-edge.
+            <p className="body-large text-sepia-700 max-w-3xl mx-auto">
+              We combine vintage aesthetics with modern coffee techniques to create 
+              cafe experiences that feel both nostalgic and refreshing.
             </p>
           </motion.div>
           
@@ -180,10 +187,10 @@ const Home = () => {
                   <div className="w-16 h-16 bg-sepia-700 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="w-8 h-8 text-cream-50" />
                   </div>
-                  <h3 className="text-xl font-display font-semibold text-ink mb-3">
+                  <h3 className="heading-6 font-display text-ink mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-sepia-700">
+                  <p className="body-small text-sepia-700">
                     {feature.description}
                   </p>
                 </Card>
@@ -194,8 +201,8 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-unified">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -203,10 +210,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-4">
-              What Our Clients Say
+            <h2 className="heading-3 font-display text-ink mb-4">
+              What Our Customers Say
             </h2>
-            <p className="text-xl text-sepia-700">
+            <p className="body-large text-sepia-700">
               Don't just take our word for it
             </p>
           </motion.div>
@@ -226,12 +233,12 @@ const Home = () => {
                       <Star key={i} className="w-5 h-5 text-sepia-500 fill-current" />
                     ))}
                   </div>
-                  <blockquote className="text-lg text-sepia-700 mb-6 italic">
+                  <blockquote className="body-base text-sepia-700 mb-6 italic">
                     "{testimonial.content}"
                   </blockquote>
                   <div>
-                    <div className="font-semibold text-ink">{testimonial.name}</div>
-                    <div className="text-sm text-sepia-500">
+                    <div className="font-semibold text-ink body-small">{testimonial.name}</div>
+                    <div className="caption text-sepia-500">
                       {testimonial.role} at {testimonial.company}
                     </div>
                   </div>
@@ -243,19 +250,19 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-ink text-cream-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="section-padding bg-ink text-cream-50">
+        <div className="container-unified text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
-              Ready to Create Something Beautiful?
+            <h2 className="heading-3 font-display mb-6">
+              Ready to Experience Something Special?
             </h2>
-            <p className="text-xl text-sepia-500 mb-8">
-              Let's work together to bring your vintage-inspired vision to life.
+            <p className="body-large text-sepia-500 mb-8">
+              Come visit us and discover the perfect blend of vintage charm and exceptional coffee.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -263,11 +270,11 @@ const Home = () => {
                 size="lg"
                 className="bg-cream-50 text-ink hover:bg-cream-200"
               >
-                Start Your Project
+                Visit Our Cafe
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button variant="outline" size="lg" className="border-cream-50 text-cream-50 hover:bg-cream-50 hover:text-ink">
-                View Portfolio
+                View Our Menu
               </Button>
             </div>
           </motion.div>

@@ -9,10 +9,10 @@ const Header = () => {
   const location = useLocation()
 
   const navItems = [
-    { name: 'Home', path: '/', description: 'Welcome to our atelier' },
-    { name: 'About', path: '/about', description: 'Our story & craftsmanship' },
-    { name: 'Portfolio', path: '/portfolio', description: 'Handcrafted creations' },
-    { name: 'Contact', path: '/contact', description: 'Let\'s create together' }
+    { name: 'Home', path: '/', description: 'Welcome to our cafe' },
+    { name: 'About', path: '/about', description: 'Our story & coffee craft' },
+    { name: 'Menu', path: '/portfolio', description: 'Our delicious offerings' },
+    { name: 'Contact', path: '/contact', description: 'Let\'s brew together' }
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -27,7 +27,7 @@ const Header = () => {
       {/* Decorative top border */}
       <div className="decorative-border h-1 bg-gradient-to-r from-sepia-500 to-sepia-700"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-unified">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.div
@@ -37,19 +37,21 @@ const Header = () => {
           >
             <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
-                <div className="w-12 h-12 bg-sepia-700 rounded-button flex items-center justify-center group-hover:bg-sepia-500 transition-colors duration-160">
-                  <span className="text-cream-50 font-display font-bold text-xl">V</span>
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-olive rounded-full flex items-center justify-center">
-                  <span className="text-xs text-cream-50 font-bold">R</span>
+                {/* Coffee cup logo */}
+                <div className="w-12 h-12 bg-cream-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-160">
+                  <img 
+                    src="/logo.png" 
+                    alt="Vintage Retro Cafe Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
               <div>
                 <h1 className="text-xl font-display font-bold text-cream-50 group-hover:text-sepia-500 transition-colors duration-160">
-                  Vintage Retro
+                  Vintage Retro Cafe
                 </h1>
                 <p className="text-xs text-sepia-500 font-body italic">
-                  Handcrafted Digital Experiences
+                  Handcrafted Coffee Experiences
                 </p>
               </div>
             </Link>
@@ -152,7 +154,7 @@ const Header = () => {
                 <div className="relative max-w-md mx-auto">
                   <input
                     type="text"
-                    placeholder="Search our collection..."
+                    placeholder="Search our menu..."
                     className="w-full vintage-input pr-10"
                     autoFocus
                   />

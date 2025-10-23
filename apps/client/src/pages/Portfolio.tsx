@@ -10,66 +10,66 @@ const Portfolio = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
   const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'web', label: 'Web Design' },
-    { id: 'branding', label: 'Branding' },
-    { id: 'ecommerce', label: 'E-commerce' }
+    { id: 'all', label: 'All Items' },
+    { id: 'coffee', label: 'Coffee' },
+    { id: 'pastries', label: 'Pastries' },
+    { id: 'beverages', label: 'Beverages' }
   ]
 
   const projects = [
     {
       id: 1,
-      title: 'Heritage Coffee Roasters',
-      category: 'web',
-      description: 'A warm, inviting website for a family-owned coffee roastery with vintage aesthetics and modern functionality.',
-      image: 'HC',
-      tags: ['Web Design', 'Branding', 'E-commerce'],
+      title: 'Signature Espresso Blend',
+      category: 'coffee',
+      description: 'Our house blend featuring notes of dark chocolate and caramel, roasted to perfection for the ultimate espresso experience.',
+      image: 'ES',
+      tags: ['Espresso', 'House Blend', 'Signature'],
       year: '2023',
       featured: true
     },
     {
       id: 2,
-      title: 'Vintage Bookstore',
-      category: 'web',
-      description: 'An online bookstore that captures the charm of old-world bookshops with modern search and filtering capabilities.',
-      image: 'VB',
-      tags: ['Web Design', 'E-commerce'],
+      title: 'Vintage Croissant',
+      category: 'pastries',
+      description: 'Buttery, flaky croissants made with traditional French techniques and served warm from our vintage oven.',
+      image: 'CR',
+      tags: ['Pastry', 'French', 'Buttery'],
       year: '2023'
     },
     {
       id: 3,
-      title: 'Artisan Pottery Studio',
-      category: 'branding',
-      description: 'Complete brand identity for a traditional pottery studio, including logo, packaging, and digital presence.',
-      image: 'AP',
-      tags: ['Branding', 'Logo Design', 'Packaging'],
+      title: 'Artisan Latte Art',
+      category: 'coffee',
+      description: 'Beautiful handcrafted latte art featuring vintage-inspired designs that make every cup a work of art.',
+      image: 'LA',
+      tags: ['Latte Art', 'Handcrafted', 'Design'],
       year: '2023'
     },
     {
       id: 4,
-      title: 'Antique Furniture Gallery',
-      category: 'ecommerce',
-      description: 'A sophisticated e-commerce platform for selling antique furniture with detailed product showcases.',
-      image: 'AF',
-      tags: ['E-commerce', 'Web Design'],
+      title: 'Homemade Scones',
+      category: 'pastries',
+      description: 'Traditional English scones with seasonal jams and clotted cream, perfect with afternoon tea.',
+      image: 'SC',
+      tags: ['Scones', 'Traditional', 'Afternoon Tea'],
       year: '2022'
     },
     {
       id: 5,
-      title: 'Vintage Fashion Boutique',
-      category: 'web',
-      description: 'An elegant online boutique specializing in vintage and retro fashion with curated collections.',
-      image: 'VF',
-      tags: ['Web Design', 'E-commerce', 'Fashion'],
+      title: 'Cold Brew Collection',
+      category: 'beverages',
+      description: 'Smooth, refreshing cold brew coffee with vintage-inspired flavor profiles and modern brewing techniques.',
+      image: 'CB',
+      tags: ['Cold Brew', 'Refreshing', 'Modern'],
       year: '2022'
     },
     {
       id: 6,
-      title: 'Traditional Bakery',
-      category: 'branding',
-      description: 'Complete rebrand for a family bakery, including logo, signage, and digital marketing materials.',
-      image: 'TB',
-      tags: ['Branding', 'Logo Design', 'Print'],
+      title: 'Vintage Tea Selection',
+      category: 'beverages',
+      description: 'Curated collection of premium teas from around the world, served in vintage china with traditional ceremony.',
+      image: 'TS',
+      tags: ['Tea', 'Premium', 'Vintage'],
       year: '2022'
     }
   ]
@@ -81,28 +81,28 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding-lg">
+        <div className="container-unified">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-ink mb-6">
-              Our Portfolio
+            <h1 className="heading-1 font-display text-ink mb-6">
+              Our Menu
             </h1>
-            <p className="text-xl text-sepia-700 mb-8 leading-relaxed">
-              A curated collection of our finest work, showcasing the perfect blend 
-              of vintage aesthetics and modern functionality.
+            <p className="body-large text-sepia-700 mb-8">
+              A curated collection of our finest offerings, showcasing the perfect blend 
+              of vintage charm and exceptional taste.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Filters and Controls */}
-      <section className="py-8 bg-cream-200/30 sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8">
+        <div className="container-unified">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2">
@@ -160,7 +160,7 @@ const Portfolio = () => {
         minScale={0.8}
         enableRotation={true}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-unified">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeFilter}-${viewMode}`}
@@ -199,13 +199,13 @@ const Portfolio = () => {
                       {/* Project Content */}
                       <div className={viewMode === 'list' ? 'flex-1' : ''}>
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-xl font-display font-semibold text-ink">
+                          <h3 className="heading-6 font-display text-ink">
                             {project.title}
                           </h3>
-                          <span className="text-sm text-sepia-500">{project.year}</span>
+                          <span className="caption text-sepia-500">{project.year}</span>
                         </div>
                         
-                        <p className="text-sepia-700 mb-4">
+                        <p className="body-small text-sepia-700 mb-4">
                           {project.description}
                         </p>
                         
@@ -225,11 +225,11 @@ const Portfolio = () => {
                         <div className="flex space-x-3">
                           <Button size="sm" variant="outline">
                             <ExternalLink className="w-4 h-4 mr-2" />
-                            View Project
+                            Order Now
                           </Button>
                           <Button size="sm" variant="ghost">
                             <Github className="w-4 h-4 mr-2" />
-                            Code
+                            Ingredients
                           </Button>
                         </div>
                       </div>
@@ -243,19 +243,19 @@ const Portfolio = () => {
       </ParallaxBackground>
 
       {/* CTA Section */}
-      <section className="py-20 bg-ink text-cream-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="section-padding bg-ink text-cream-50">
+        <div className="container-unified text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
-              Ready to Start Your Project?
+            <h2 className="heading-3 font-display mb-6">
+              Ready to Taste Something Amazing?
             </h2>
-            <p className="text-xl text-sepia-500 mb-8">
-              Let's create something beautiful together. Every great project starts with a conversation.
+            <p className="body-large text-sepia-500 mb-8">
+              Let's create something delicious together. Every great experience starts with a visit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -263,10 +263,10 @@ const Portfolio = () => {
                 size="lg"
                 className="bg-cream-50 text-ink hover:bg-cream-200"
               >
-                Start Your Project
+                Visit Our Cafe
               </Button>
               <Button variant="outline" size="lg" className="border-cream-50 text-cream-50 hover:bg-cream-50 hover:text-ink">
-                View Case Studies
+                View Full Menu
               </Button>
             </div>
           </motion.div>

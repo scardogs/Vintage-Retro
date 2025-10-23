@@ -8,23 +8,23 @@ const Footer = () => {
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Mail, href: 'mailto:hello@vintageretro.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:hello@vintageretrocafe.com', label: 'Email' }
   ]
 
   const footerLinks = {
     company: [
       { name: 'About Us', href: '/about' },
       { name: 'Our Story', href: '/about#story' },
-      { name: 'Craftsmanship', href: '/about#craftsmanship' }
+      { name: 'Coffee Craft', href: '/about#craftsmanship' }
     ],
     services: [
-      { name: 'Web Design', href: '/portfolio#web-design' },
-      { name: 'Brand Identity', href: '/portfolio#branding' },
-      { name: 'Digital Strategy', href: '/portfolio#strategy' }
+      { name: 'Coffee Menu', href: '/portfolio#coffee' },
+      { name: 'Pastries', href: '/portfolio#pastries' },
+      { name: 'Beverages', href: '/portfolio#beverages' }
     ],
     resources: [
       { name: 'Blog', href: '/blog' },
-      { name: 'Case Studies', href: '/portfolio' },
+      { name: 'Our Menu', href: '/portfolio' },
       { name: 'Contact', href: '/contact' }
     ]
   }
@@ -34,7 +34,7 @@ const Footer = () => {
       {/* Decorative top border */}
       <div className="decorative-border h-1 bg-gradient-to-r from-sepia-500 to-sepia-700"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container-unified py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <motion.div
@@ -45,17 +45,24 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-sepia-700 rounded-button flex items-center justify-center">
-                <span className="text-cream-50 font-display font-bold text-lg">V</span>
+              <div className="relative">
+                {/* Coffee cup logo */}
+                <div className="w-10 h-10 bg-cream-50 flex items-center justify-center">
+                  <img 
+                    src="/logo.png" 
+                    alt="Vintage Retro Cafe Logo" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
               <div>
-                <h3 className="text-lg font-display font-bold">Vintage Retro</h3>
-                <p className="text-xs text-sepia-500 italic">Handcrafted Digital</p>
+                <h3 className="text-lg font-display font-bold">Vintage Retro Cafe</h3>
+                <p className="text-xs text-sepia-500 italic">Handcrafted Coffee</p>
               </div>
             </div>
             <p className="text-sm text-sepia-500 mb-6 leading-relaxed">
-              We create warm, nostalgic digital experiences that feel handcrafted 
-              while delivering modern performance and accessibility.
+              We create warm, nostalgic cafe experiences that feel handcrafted 
+              while delivering exceptional coffee and community.
             </p>
             
             {/* Social Links */}
@@ -108,7 +115,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-display font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-display font-semibold mb-4">Menu</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -156,7 +163,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-sepia-500 mb-4 md:mb-0">
-              © {currentYear} Vintage Retro. All rights reserved. Handcrafted with care.
+              © {currentYear} Vintage Retro Cafe. All rights reserved. Brewed with love.
             </p>
             <div className="flex space-x-6 text-sm text-sepia-500">
               <a href="/privacy" className="hover:text-cream-50 transition-colors duration-160">

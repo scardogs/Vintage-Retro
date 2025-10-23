@@ -7,23 +7,23 @@ const About = () => {
   const values = [
     {
       icon: Heart,
-      title: 'Passion for Craft',
-      description: 'We pour our heart into every project, treating each one as a unique work of art that deserves the finest attention to detail.'
+      title: 'Passion for Coffee',
+      description: 'We pour our heart into every cup, treating each brew as a unique work of art that deserves the finest attention to detail.'
     },
     {
       icon: Users,
-      title: 'Collaborative Spirit',
-      description: 'We believe the best results come from working closely with our clients, understanding their vision and bringing it to life together.'
+      title: 'Community First',
+      description: 'We believe the best cafe experiences come from building relationships with our neighbors, understanding their stories and creating a welcoming space together.'
     },
     {
       icon: Award,
-      title: 'Excellence in Execution',
-      description: 'From concept to completion, we maintain the highest standards of quality and craftsmanship in everything we create.'
+      title: 'Excellence in Every Cup',
+      description: 'From bean selection to brewing, we maintain the highest standards of quality and craftsmanship in everything we serve.'
     },
     {
       icon: Coffee,
       title: 'Warm & Personal',
-      description: 'We create digital experiences that feel welcoming and personal, like a warm cup of coffee on a quiet morning.'
+      description: 'We create cafe experiences that feel welcoming and personal, like a warm cup of coffee on a quiet morning.'
     }
   ]
 
@@ -31,42 +31,42 @@ const About = () => {
     {
       year: '2020',
       title: 'The Beginning',
-      description: 'Founded with a vision to blend vintage aesthetics with modern web technology.'
+      description: 'Founded with a vision to blend vintage cafe culture with modern coffee techniques.'
     },
     {
       year: '2021',
       title: 'First Success',
-      description: 'Launched our first major project, establishing our reputation for quality and attention to detail.'
+      description: 'Opened our doors and established our reputation for quality coffee and warm community atmosphere.'
     },
     {
       year: '2022',
       title: 'Growing Recognition',
-      description: 'Received industry awards and recognition for our innovative approach to vintage-inspired design.'
+      description: 'Received local awards and recognition for our innovative approach to vintage-inspired cafe experiences.'
     },
     {
       year: '2023',
       title: 'Expanding Horizons',
-      description: 'Expanded our services and team while maintaining our commitment to handcrafted excellence.'
+      description: 'Expanded our menu and community programs while maintaining our commitment to handcrafted excellence.'
     }
   ]
 
   const team = [
     {
       name: 'Sarah Williams',
-      role: 'Creative Director & Founder',
-      bio: 'With over 10 years in design, Sarah brings a passion for vintage aesthetics and modern functionality.',
+      role: 'Head Barista & Founder',
+      bio: 'With over 10 years in coffee, Sarah brings a passion for vintage cafe culture and modern brewing techniques.',
       image: 'SW'
     },
     {
       name: 'Michael Rodriguez',
-      role: 'Lead Developer',
-      bio: 'Michael ensures our beautiful designs perform flawlessly across all devices and platforms.',
+      role: 'Coffee Roaster',
+      bio: 'Michael ensures our coffee beans are perfectly roasted and sourced from the finest farms worldwide.',
       image: 'MR'
     },
     {
       name: 'Emma Thompson',
-      role: 'UX Strategist',
-      bio: 'Emma crafts user experiences that feel intuitive and delightful, with a touch of vintage charm.',
+      role: 'Pastry Chef',
+      bio: 'Emma crafts delicious pastries that complement our coffee perfectly, with a touch of vintage charm.',
       image: 'ET'
     }
   ]
@@ -74,20 +74,20 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding-lg">
+        <div className="container-unified">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-ink mb-6">
+            <h1 className="heading-1 font-display text-ink mb-6">
               Our Story
             </h1>
-            <p className="text-xl text-sepia-700 mb-8 leading-relaxed">
-              We are passionate craftspeople who believe that digital experiences should feel 
-              warm, personal, and handcrafted. Every project is an opportunity to create 
+            <p className="body-large text-sepia-700 mb-8">
+              We are passionate coffee lovers who believe that cafe experiences should feel 
+              warm, personal, and handcrafted. Every cup is an opportunity to create 
               something truly special.
             </p>
             <div className="flex items-center justify-center space-x-8 text-sepia-500">
@@ -97,11 +97,11 @@ const About = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="w-5 h-5" />
-                <span>50+ Happy Clients</span>
+                <span>500+ Happy Customers</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Award className="w-5 h-5" />
-                <span>Multiple Awards</span>
+                <span>Local Awards</span>
               </div>
             </div>
           </motion.div>
@@ -109,8 +109,8 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-cream-200/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding">
+        <div className="container-unified">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -118,18 +118,18 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-6">
+              <h2 className="heading-3 font-display text-ink mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-sepia-700 mb-6 leading-relaxed">
-                We believe that digital experiences should feel as warm and personal as a 
-                handwritten letter or a well-worn book. Our mission is to create digital 
-                spaces that evoke nostalgia while delivering cutting-edge performance.
+              <p className="body-base text-sepia-700 mb-6">
+                We believe that cafe experiences should feel as warm and personal as a 
+                handwritten letter or a well-worn book. Our mission is to create cafe 
+                spaces that evoke nostalgia while delivering exceptional coffee.
               </p>
-              <p className="text-lg text-sepia-700 leading-relaxed">
-                Every project we undertake is treated as a unique work of art, carefully 
-                crafted with attention to detail and a deep understanding of vintage aesthetics 
-                combined with modern usability.
+              <p className="body-base text-sepia-700">
+                Every cup we serve is treated as a unique work of art, carefully 
+                crafted with attention to detail and a deep understanding of vintage cafe culture 
+                combined with modern brewing techniques.
               </p>
             </motion.div>
             
@@ -149,8 +149,8 @@ const About = () => {
                     Handcrafted Excellence
                   </h3>
                   <p className="text-sepia-700">
-                    Every detail is carefully considered and crafted with love, 
-                    just like the finest vintage pieces.
+                    Every cup is carefully considered and crafted with love, 
+                    just like the finest vintage coffee traditions.
                   </p>
                 </div>
               </Card>
@@ -170,7 +170,7 @@ const About = () => {
         minScale={0.8}
         enableRotation={true}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-unified">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -178,12 +178,12 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-4">
+            <h2 className="heading-3 font-display text-ink mb-4">
               Our Values
             </h2>
-            <p className="text-xl text-sepia-700 max-w-3xl mx-auto">
+            <p className="body-large text-sepia-700 max-w-3xl mx-auto">
               These core principles guide everything we do and help us create 
-              meaningful, lasting digital experiences.
+              meaningful, lasting cafe experiences.
             </p>
           </motion.div>
           
@@ -200,10 +200,10 @@ const About = () => {
                   <div className="w-16 h-16 bg-sepia-700 rounded-full flex items-center justify-center mx-auto mb-4">
                     <value.icon className="w-8 h-8 text-cream-50" />
                   </div>
-                  <h3 className="text-xl font-display font-semibold text-ink mb-3">
+                  <h3 className="heading-6 font-display text-ink mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-sepia-700">
+                  <p className="body-small text-sepia-700">
                     {value.description}
                   </p>
                 </Card>
@@ -214,7 +214,7 @@ const About = () => {
       </ParallaxBackground>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-cream-200/30">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -223,11 +223,11 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-4">
+            <h2 className="heading-3 font-display text-ink mb-4">
               Our Journey
             </h2>
-            <p className="text-xl text-sepia-700">
-              From humble beginnings to industry recognition
+            <p className="body-large text-sepia-700">
+              From humble beginnings to community recognition
             </p>
           </motion.div>
           
@@ -248,7 +248,7 @@ const About = () => {
                 <div className="absolute left-6 w-4 h-4 bg-sepia-700 rounded-full border-4 border-cream-50 z-10"></div>
                 
                 {/* Content */}
-                <div className="ml-16">
+                <div className="ml-24">
                   <div className="text-2xl font-display font-bold text-sepia-700 mb-2">
                     {item.year}
                   </div>
@@ -275,11 +275,11 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-ink mb-4">
+            <h2 className="heading-3 font-display text-ink mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-sepia-700">
-              The passionate people behind our beautiful creations
+            <p className="body-large text-sepia-700">
+              The passionate people behind our delicious coffee
             </p>
           </motion.div>
           
